@@ -157,7 +157,23 @@ var RPSSCRIPT = {
 // RPSSCRIPT.database.ref().update({state: 'lobby'});
 RPSSCRIPT.initialize();
 $('#gameDisp').html("Login!");
-$('window').on('beforeunload', RPSSCRIPT.userDisconnect);
+$(window).on('beforeunload', function(){
+		//removes player from db
+		console.log("userDisconnect entered");
+		if (RPSSCRIPT.userID !== null){
+			RPSSCRIPT.database.ref('players/'+RPSSCRIPT.userID+'/').remove();
+			let temp = {
+				state: 'lobby'
+			};
+			temp['player'+RPSSCRIPT.userID+'Connected'] = false;
+			RPSSCRIPT.database.ref().update(temp);
+			$('#login').show();
+			$("#pSelect").hide();
+			$("#rSelect").hide();
+			$("#sSelect").hide();
+		} else {
+			alert("You're not connected!")
+		}});
 $("#lginBtn").on("click", RPSSCRIPT.userConnect);
 $("#quit").on("click", RPSSCRIPT.userDisconnect);
 
