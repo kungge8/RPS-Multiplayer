@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WIN THE GAME</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	</head>
+	<body>
+		<header class = "row text-center">
+			<h2>Multiplayer rps</h2>
+		</header>
+		<section class = "container"> <!-- Body -->
+			<div class = "col-xs-8"> <!-- Game Display -->
+				<div class = "row"> <!-- img display -->
+					<div class = "disp col-xs-4" id="p1Disp"> <!-- p1 -->
+					</div>
+					<div class = "disp col-xs-4" id="gameDisp">
+					</div>
+					<div class = "disp col-xs-4" id="p2Disp">
+					</div>
+				</div>
+				<div id="login">
+					<input class = "form-control" type="text" placeholder="What is your name?" id="userName"></input>
+					<button type="submit" id="lginBtn">Log in!</button>
+				</div>
+				<div class = "row"> <!-- Selection display -->
+					<button class = "btn btn-default" id="rSelect">Rock!</button>
+					<button class = "btn btn-default" id="pSelect">Paper!</button>
+					<button class = "btn btn-default" id="sSelect">Scissors!</button>
+					<button class = "btn btn-default" id="quit">Quit!</button>
+				</div>
+			</div>
+			<aside class = "col-xs-4"> <!-- Messaging Display -->
+				<form> <!-- messaging input -->
+					<textarea class = "form-control" rows = "3" placeholder="Send a message..."></textarea>
+					<button type="submit">Send!</button>
+				</form>
+			</aside>
+		</section>
+		<footer>
+			
+		</footer>
+
+		<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyAdq_A9vPKjkhqAYpmlxW5RMK4WHLE8DpQ",
+		    authDomain: "multiplayer-rps-b9d4e.firebaseapp.com",
+		    databaseURL: "https://multiplayer-rps-b9d4e.firebaseio.com",
+		    projectId: "multiplayer-rps-b9d4e",
+		    storageBucket: "multiplayer-rps-b9d4e.appspot.com",
+		    messagingSenderId: "458473833422"
+		  };
+		  firebase.initializeApp(config);
+		</script>
+		<script type="text/javascript" src="assets/javascript/rpsscript.js"></script>
+	</body>
+</html>
