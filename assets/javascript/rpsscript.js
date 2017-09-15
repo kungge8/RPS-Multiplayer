@@ -70,6 +70,9 @@ var RPSSCRIPT = {
 			temp['player'+RPSSCRIPT.userID+'Connected'] = false;
 			RPSSCRIPT.database.ref().update(temp);
 			$('#login').show();
+			$("#pSelect").hide();
+			$("#rSelect").hide();
+			$("#sSelect").hide();
 		} else {
 			alert("You're not connected!")
 		}	
@@ -162,10 +165,6 @@ RPSSCRIPT.database.ref().on("value", function(snapshot){
 	console.log("onValue entered");
 	RPSSCRIPT.player1Connected = snapshot.val().player1Connected;
 	RPSSCRIPT.player2Connected = snapshot.val().player2Connected;
-	RPSSCRIPT.state = snapshot.val().state;
-	console.log(snapshot.val());
-	RPSSCRIPT.p1Choice = snapshot.val().players[1].choice;
-	RPSSCRIPT.p2Choice = snapshot.val().players[2].choice;
 
 	if (RPSSCRIPT.player1Connected === true){
 		console.log("p1 connection check");
@@ -186,6 +185,11 @@ RPSSCRIPT.database.ref().on("value", function(snapshot){
 		console.log("p2 connection check");
 		$('#p2Disp').html("Not connected");
 	}
+
+	RPSSCRIPT.state = snapshot.val().state;
+	console.log(snapshot.val());
+	RPSSCRIPT.p1Choice = snapshot.val().players[1].choice;
+	RPSSCRIPT.p2Choice = snapshot.val().players[2].choice;
 
 	if(RPSSCRIPT.state === 'lobby'){
 		RPSSCRIPT.messaging();
